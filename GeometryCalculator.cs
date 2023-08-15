@@ -1,10 +1,19 @@
-﻿namespace GeometryLibrary
+﻿using System;
+
+namespace GeometryLibrary
 {
     public interface IShape
     {
         double CalculateArea();
     }
 
+    public static class GeometryCalculator
+    {
+        public static double CalculateArea(IShape shape)
+        {
+            return shape.CalculateArea();
+        }
+    }
     public class Circle : IShape
     {
         public double Radius { get; set; }
@@ -14,7 +23,6 @@
             return Math.PI * Math.Pow(Radius, 2);
         }
     }
-
     public class Triangle : IShape
     {
         public double Side1 { get; set; }
@@ -30,8 +38,8 @@
         public bool IsRightTriangle()
         {
             bool isRight = Math.Pow(Side1, 2) + Math.Pow(Side2, 2) == Math.Pow(Side3, 2)
-                || Math.Pow(Side1, 2) + Math.Pow(Side3, 2) == Math.Pow(Side2, 2)
-                || Math.Pow(Side2, 2) + Math.Pow(Side3, 2) == Math.Pow(Side1, 2);
+               || Math.Pow(Side1, 2) + Math.Pow(Side3, 2) == Math.Pow(Side2, 2)
+               || Math.Pow(Side2, 2) + Math.Pow(Side3, 2) == Math.Pow(Side1, 2);
             return isRight;
         }
     }
