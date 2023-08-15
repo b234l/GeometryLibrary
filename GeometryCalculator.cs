@@ -27,5 +27,12 @@
             double area = Math.Sqrt(semiPerimeter * (semiPerimeter - Side1) * (semiPerimeter - Side2) * (semiPerimeter - Side3));
             return area;
         }
+        public bool IsRightTriangle()
+        {
+            bool isRight = Math.Pow(Side1, 2) + Math.Pow(Side2, 2) == Math.Pow(Side3, 2)
+                || Math.Pow(Side1, 2) + Math.Pow(Side3, 2) == Math.Pow(Side2, 2)
+                || Math.Pow(Side2, 2) + Math.Pow(Side3, 2) == Math.Pow(Side1, 2);
+            return isRight;
+        }
     }
 }
